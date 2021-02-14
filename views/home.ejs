@@ -1,0 +1,32 @@
+<%- include("header") -%>
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">To-do List</a>
+</nav>
+
+<div class="box" id="heading">
+  <h1>Choose a list</h1>
+</div>
+
+
+  <div class="box">
+    <form class="" action="/delete" method="post">
+      <div class="row">
+        <% listTitle.forEach(function(list){ %>
+        <a class="lists col-sm-10" href="/<%= list.name %>"><p class="list-text"><%= list.name %></p></a>
+        <button class="delbtn col-sm-2" type="submit" name="deleteList" value="<%= list.name %>">🗑</button>
+        <% }); %>
+        <input type="hidden" name="listName" value="choose"></input>
+      </div>
+    </form>
+
+    <form class="item" action="/" method="post">
+      <input class="item-input" type="text" name="newList" placeholder="Type and press the button" autocomplete="off">
+      <button class="addbtn" type="submit" name="" value="">Add</button>
+    </form>
+  </div>
+
+
+
+
+<%- include("footer") -%>
