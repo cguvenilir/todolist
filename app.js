@@ -8,7 +8,7 @@ const _ = require("lodash");
 const app = express();
 
 const config = require('./config/config.js');
-var url = global.gConfig;
+var url = config.url;
 
 app.set('view engine', 'ejs');
 
