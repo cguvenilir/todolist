@@ -62,8 +62,10 @@ app.get("/:customListName", function(req,res){
     List.findOne({name: customListName}, function(err, list){
       if (!err) {
         res.render("list", {listTitle: customListName, newListItems: list.items});
+      } else {
+        res.redirect("/" + customListName);
       };
-  });
+    });
 });
 
 
@@ -117,7 +119,7 @@ app.post("/", function(req, res){
       } else {
         res.render("list", {listTitle: newListName, newListItems: newListName.items});
       }
-    }
+    };
   });
 });
 
